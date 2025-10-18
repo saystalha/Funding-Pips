@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use | FundingPips</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-purple': '#8B5CF6',
+                        'dark-navy': '#0F172A',
+                    }
+                }
+            }
+        }
+
+        // JavaScript to handle the dynamic content visibility based on tabs and sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const stepTabs = document.querySelectorAll('.step-tab');
+            const programTabs = document.querySelectorAll('.program-tab');
+            const contentDisplay = document.getElementById('main-content-display');
+            
+            let activeStep = 'step-2'; // Default to 2 step
+            let activeProgram = 'FundingPips'; // Default to standard
+
+            // Function to update the main content based on selected section, step, and program
+            const updateContent = (sectionId, step, program) => {
+                const stepText = step.replace('-', ' ');
+                const content = `
+                    <h2 class="text-4xl font-extrabold mb-4 text-primary-purple">${sectionId.replaceAll('-', ' ').toUpperCase()} (${stepText} / ${program})</h2>
+                    <p class="text-lg text-gray-300">
+                        This is the detailed terms content for **${sectionId.replaceAll('-', ' ')}** under the **${program}** program, using the **${stepText}** evaluation model. 
+                        No need to rush, you don't build a life in a day. There is plenty of time to pass the evaluation successfully, being dynamic is crucial.
+                        <br><br>
+                        ${sectionId === 'discipline-consistency' ? 'This section emphasizes maintaining a consistent strategy and following daily risk limits, key principles of successful trading.' : ''}
+                        ${sectionId === 'trading-behaviour' ? 'This section details prohibited trading practices, including martingale, hedging across accounts, and the use of harmful EAs.' : ''}
+                        ${sectionId === 'toxic-trading' ? 'This section defines toxic trading flow and how it can lead to account termination. Focus on realistic market execution.' : ''}
+                        ${sectionId === 'trading-instruments' ? 'This section lists all available trading instruments (Forex, Metals, Indices, Crypto) and their specific trading hours and conditions.' : ''}
+                        ${sectionId === 'funding-rules' ? 'This section outlines the capital increase process, profit split structure (up to 90%), and payout requirements.' : ''}
+                    </p>
+                    <div class="mt-8 p-6 bg-gray-800 rounded-xl border border-indigo-700/50">
+                        <h3 class="text-xl font-semibold text-white">Summary of Key Rule</h3>
+                        <ul class="list-disc pl-5 mt-2 text-gray-400 space-y-1 text-sm">
+                            <li>Max Loss: 5% (based on the ${program} rules).</li>
+                            <li>Daily Loss Limit: 3% (Strict rule for ${stepText}).</li>
+                            <li>Minimum Trading Days: 5 days.</li>
+                        </ul>
+                    </div>
+                `;
+                contentDisplay.innerHTML = content;
+            };
+
+            // Sidebar Navigation Handler
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = e.currentTarget.getAttribute('data-section');
+                    navLinks.forEach(l => l.classList.remove('font-bold', 'text-primary-purple', 'border-primary-purple'));
+                    e.currentTarget.classList.add('font-bold', 'text-primary-purple', 'border-primary-purple');
+                    updateContent(sectionId, activeStep, activeProgram);
+                });
+            });
+
+            // Step Tab Handler (1 step / 2 step)
+            stepTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    activeStep = e.currentTarget.getAttribute('data-step');
+                    stepTabs.forEach(t => t.classList.remove('bg-indigo-700', 'border-primary-purple'));
+                    e.currentTarget.classList.add('bg-indigo-700', 'border-primary-purple');
+                    // Find the currently active sidebar link and re-run update to change content
+                    const activeSection = document.querySelector('.nav-link.font-bold').getAttribute('data-section');
+                    updateContent(activeSection, activeStep, activeProgram);
+                });
+            });
+
+            // Program Tab Handler (FundingPips / FundingPips Pro)
+            programTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    activeProgram = e.currentTarget.getAttribute('data-program');
+                    programTabs.forEach(t => t.classList.remove('bg-indigo-500', 'text-white'));
+                    e.currentTarget.classList.add('bg-indigo-500', 'text-white');
+                    // Find the currently active sidebar link and re-run update to change content
+                    const activeSection = document.querySelector('.nav-link.font-bold').getAttribute('data-section');
+                    updateContent(activeSection, activeStep, activeProgram);
+                });
+            });
+            
+            // Initial load: Set defaults and display first section
+            document.querySelector('.step-tab[data-step="step-2"]').click();
+            document.querySelector('.program-tab[data-program="FundingPips"]').click();
+            document.querySelector('.nav-link[data-section="discipline-consistency"]').click();
+        });
+    </script>
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-purple-700 text-center py-2 text-xs sm:text-sm font-medium">
+        Haven't purchased yet? Use code <span class="font-bold">HELLO</span> & Get 20% OFF now on your first purchase!
+    </div>
+
+    <!-- Header / Navigation Bar (Paths are relative: ../ to go up one level) -->
+    <header class="w-full bg-gray-900 border-b border-indigo-700/50 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+            <!-- Logo (Path: ../index.html) -->
+            <a href="/index.html" class="flex items-center space-x-2">
+                <svg class="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span class="text-2xl font-bold text-white tracking-tight">FundingPips<sup class="text-xs text-primary-purple">®</sup></span>
+            </a>
+
+            <!-- Desktop Navigation Links (Paths are relative: ../FOLDER/file.html) -->
+            <nav class="hidden lg:flex space-x-8 text-sm font-medium">
+                <a href="/index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
+                <a href="#" class="text-white hover:text-primary-purple transition duration-150">Terms of Use</a> <!-- Current Page -->
+                <a href="../About/About.html" class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
+                <a href="../Afflieated/Affliated.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
+                <a href="../Faqs/Faqs.html" class="text-gray-300 hover:text-primary-purple transition duration-150">FAQ</a>
+                <a href="../Contact/contact.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
+            </nav>
+
+            <!-- Auth Buttons (Paths are relative: ../FOLDER/file.html) -->
+            <div class="flex space-x-4">
+                <a href="../Sign_Up/signup.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary-purple hover:bg-purple-600 transition duration-150">
+                    Sign Up
+                </a>
+                <a href="../Sign_In/signin.html" class="inline-flex items-center justify-center px-4 py-2 border border-2 border-indigo-500 text-sm font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150">
+                    Dashboard
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Terms of Use -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Left Column: Title and Sidebar Navigation (col-span-1) -->
+        <div class="lg:col-span-1">
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-8">
+                Terms of Use In A Fully <span class="text-primary-purple">Simulated Environment</span>
+            </h1>
+
+            <!-- Step Tabs (Horizontal on small screens, part of the flow) -->
+            <div class="bg-gray-800 p-4 rounded-xl mb-6 shadow-lg hidden lg:block">
+                <p class="text-sm font-semibold mb-3 text-gray-400">Evaluation Steps</p>
+                <div class="flex space-x-3">
+                    <button data-step="step-1" class="step-tab px-4 py-2 text-sm font-medium rounded-lg border border-transparent bg-gray-900 text-gray-300 hover:border-primary-purple transition duration-150">
+                        1 step
+                    </button>
+                    <button data-step="step-2" class="step-tab px-4 py-2 text-sm font-medium rounded-lg border bg-indigo-700 border-primary-purple text-white transition duration-150">
+                        2 step
+                    </button>
+                </div>
+                <p class="text-sm font-semibold mt-4 mb-3 text-gray-400">Program Type</p>
+                <div class="flex space-x-3">
+                    <button data-program="FundingPips" class="program-tab px-4 py-2 text-sm font-medium rounded-lg border border-transparent bg-indigo-500 text-white transition duration-150">
+                        FundingPips
+                    </button>
+                    <button data-program="FundingPips Pro" class="program-tab px-4 py-2 text-sm font-medium rounded-lg border border-transparent bg-gray-900 text-gray-300 hover:bg-indigo-500 hover:text-white transition duration-150">
+                        FundingPips Pro
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Sidebar Navigation -->
+            <nav class="bg-gray-800 p-6 rounded-xl shadow-lg space-y-2">
+                <a href="#" data-section="discipline-consistency" class="nav-link block p-3 rounded-lg text-lg text-gray-300 border-l-4 border-transparent hover:text-white hover:border-primary-purple/50 transition duration-150">
+                    1. It's All About Discipline And Consistency.
+                </a>
+                <a href="#" data-section="trading-behaviour" class="nav-link block p-3 rounded-lg text-lg text-gray-300 border-l-4 border-transparent hover:text-white hover:border-primary-purple/50 transition duration-150">
+                    2. Trading Behaviour and Rules
+                </a>
+                <a href="#" data-section="toxic-trading" class="nav-link block p-3 rounded-lg text-lg text-gray-300 border-l-4 border-transparent hover:text-white hover:border-primary-purple/50 transition duration-150">
+                    3. Toxic Trading Flow
+                </a>
+                <a href="#" data-section="trading-instruments" class="nav-link block p-3 rounded-lg text-lg text-gray-300 border-l-4 border-transparent hover:text-white hover:border-primary-purple/50 transition duration-150">
+                    4. Trading Instruments
+                </a>
+                <a href="#" data-section="funding-rules" class="nav-link block p-3 rounded-lg text-lg text-gray-300 border-l-4 border-transparent hover:text-white hover:border-primary-purple/50 transition duration-150">
+                    5. Funding Rules and Guidelines
+                </a>
+            </nav>
+        </div>
+
+        <!-- Right Column: Dynamic Content Display (col-span-3) -->
+        <div class="lg:col-span-3">
+             <!-- Mobile Tabs for small screens -->
+            <div class="bg-gray-800 p-4 rounded-xl mb-6 shadow-lg lg:hidden">
+                <p class="text-sm font-semibold mb-3 text-gray-400">Evaluation Steps</p>
+                <div class="flex justify-around space-x-3 mb-4">
+                    <button data-step="step-1" class="step-tab flex-1 px-4 py-2 text-sm font-medium rounded-lg border border-transparent bg-gray-900 text-gray-300 hover:border-primary-purple transition duration-150">
+                        1 step
+                    </button>
+                    <button data-step="step-2" class="step-tab flex-1 px-4 py-2 text-sm font-medium rounded-lg border bg-indigo-700 border-primary-purple text-white transition duration-150">
+                        2 step
+                    </button>
+                </div>
+                <p class="text-sm font-semibold mb-3 text-gray-400">Program Type</p>
+                <div class="flex justify-around space-x-3">
+                    <button data-program="FundingPips" class="program-tab flex-1 px-4 py-2 text-sm font-medium rounded-lg border border-transparent bg-indigo-500 text-white transition duration-150">
+                        FundingPips
+                    </button>
+                    <button data-program="FundingPips Pro" class="program-tab flex-1 px-4 py-2 text-sm font-medium rounded-lg border border-transparent bg-gray-900 text-gray-300 hover:bg-indigo-500 hover:text-white transition duration-150">
+                        FundingPips Pro
+                    </button>
+                </div>
+            </div>
+
+            <div id="main-content-display" class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl border border-indigo-700/50 min-h-[400px]">
+                <!-- Content will be injected here by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700/50 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            &copy; 2024 FundingPips. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

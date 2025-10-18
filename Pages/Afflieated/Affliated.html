@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Program | FundingPips</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-purple': '#8B5CF6',
+                        'dark-navy': '#0F172A',
+                    }
+                }
+            }
+        }
+        // Function to create a simple SVG icon for the tier shields
+        function getShieldIcon(stars, color) {
+            let starSvgs = '';
+            for (let i = 0; i < 4; i++) {
+                starSvgs += `
+                    <svg class="w-5 h-5 ${i < stars ? 'text-yellow-400' : 'text-gray-500'}" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.049 2.927c.3-.921 1.63-.921 1.93 0l2.386 7.331h-7.302l2.386-7.331z"/>
+                        <path fill-rule="evenodd" d="M10 2a1 1 0 01.951.684l2.25 6.942 7.042.06c.96.008 1.341 1.258.583 1.777l-5.71 4.183 2.15 6.643c.3.921-.755 1.688-1.583 1.107l-6.071-4.437-6.07 4.437c-.828.581-1.884-.186-1.583-1.107l2.15-6.643-5.71-4.183c-.758-.52-.377-1.769.583-1.777l7.042-.06 2.25-6.942z" clip-rule="evenodd"/>
+                    </svg>
+                `;
+            }
+
+            return `
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                    <!-- Shield Background -->
+                    <svg class="absolute w-full h-full text-${color}-600/30" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 0L85 15V50C85 78.4 50 100 50 100S15 78.4 15 50V15L50 0Z" />
+                    </svg>
+                    <!-- Shield Outline -->
+                    <svg class="absolute w-full h-full text-${color}-500" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 0L85 15V50C85 78.4 50 100 50 100S15 78.4 15 50V15L50 0Z" />
+                    </svg>
+                    <!-- Stars -->
+                    <div class="flex space-x-1.5 mt-2">
+                        ${starSvgs}
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-purple-700 text-center py-2 text-xs sm:text-sm font-medium">
+        Haven't purchased yet? Use code <span class="font-bold">HELLO</span> & Get 20% OFF now on your first purchase!
+    </div>
+
+    <!-- Header / Navigation Bar (Paths are relative: ../ to go up one level) -->
+    <header class="w-full bg-gray-900 border-b border-indigo-700/50 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+            <!-- Logo (Path: ../index.html) -->
+            <a href="/index.html" class="flex items-center space-x-2">
+                <svg class="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span class="text-2xl font-bold text-white tracking-tight">FundingPips<sup class="text-xs text-primary-purple">®</sup></span>
+            </a>
+
+            <!-- Desktop Navigation Links (Paths are relative: ../FOLDER/file.html) -->
+            <nav class="hidden lg:flex space-x-8 text-sm font-medium">
+                <a href="/index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
+                <a href="../Term _of_use/term.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
+                <a href="../About/About.html" class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
+                <a href="#" class="text-white hover:text-primary-purple transition duration-150">Affiliate Program</a> <!-- Current Page -->
+                <a href="../Faqs/Faqs.html" class="text-gray-300 hover:text-primary-purple transition duration-150">FAQ</a>
+                <a href="../Contact/contact.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
+            </nav>
+
+            <!-- Auth Buttons (Paths are relative: ../FOLDER/file.html) -->
+            <div class="flex space-x-4">
+                <a href="../Sign_Up/signup.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary-purple hover:bg-purple-600 transition duration-150">
+                    Sign Up
+                </a>
+                <a href="../Sign_In/signin.html" class="inline-flex items-center justify-center px-4 py-2 border border-2 border-indigo-500 text-sm font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150">
+                    Dashboard
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        
+        <!-- Hero Section: Affiliate Program -->
+        <section class="relative overflow-hidden bg-gray-900 pt-20 pb-24 md:pt-32 md:pb-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6">
+                    Affiliate Program
+                </h1>
+                <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-400">
+                    Find talented traders from around the world to join us on our journey, and take advantage of the great benefits we provide you for each referral.
+                </p>
+                <div class="mt-10">
+                    <button onclick="window.location.href='../Sign_Up/signup.html'" class="px-8 py-3 text-lg font-semibold rounded-xl text-white bg-primary-purple hover:bg-purple-600 shadow-xl transition duration-300 transform hover:scale-[1.02]">
+                        Get started
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tiers Section -->
+        <section class="bg-gray-800 py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-5xl font-extrabold text-white mb-16">
+                    Our Tiers
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Tier 1: Market Maker -->
+                    <div class="p-8 bg-gray-900 rounded-2xl shadow-xl border border-indigo-700/50 flex flex-col items-center">
+                        <div id="tier-1-icon"></div>
+                        <h3 class="text-3xl font-bold mt-6 text-white">Market Maker</h3>
+                        <p class="text-lg text-gray-400 mt-2">Reach <span class="font-semibold text-primary-purple">24-99 users</span></p>
+                        <div class="w-full mt-6 pt-4 border-t border-gray-700">
+                            <p class="text-xl font-medium text-white mb-1">Commission</p>
+                            <p class="text-2xl font-bold text-green-400">10%</p>
+                        </div>
+                    </div>
+
+                    <!-- Tier 2: Trade Master -->
+                    <div class="p-8 bg-gray-900 rounded-2xl shadow-xl border border-indigo-700/50 flex flex-col items-center">
+                        <div id="tier-2-icon"></div>
+                        <h3 class="text-3xl font-bold mt-6 text-white">Trade Master</h3>
+                        <p class="text-lg text-gray-400 mt-2">Reach <span class="font-semibold text-primary-purple">100-299 users</span></p>
+                        <div class="w-full mt-6 pt-4 border-t border-gray-700">
+                            <p class="text-xl font-medium text-white mb-1">Commission</p>
+                            <p class="text-2xl font-bold text-green-400">15%</p>
+                        </div>
+                    </div>
+
+                    <!-- Tier 3: Market Leader -->
+                    <div class="p-8 bg-gray-900 rounded-2xl shadow-xl border border-indigo-700/50 flex flex-col items-center">
+                        <div id="tier-3-icon"></div>
+                        <h3 class="text-3xl font-bold mt-6 text-white">Market Leader</h3>
+                        <p class="text-lg text-gray-400 mt-2">Reach <span class="font-semibold text-primary-purple">300-599 users</span></p>
+                        <div class="w-full mt-6 pt-4 border-t border-gray-700">
+                            <p class="text-xl font-medium text-white mb-1">Commission</p>
+                            <p class="text-2xl font-bold text-green-400">20%</p>
+                        </div>
+                    </div>
+
+                    <!-- Tier 4: Prime Partner (Highlight) -->
+                    <div class="p-8 bg-gray-900 rounded-2xl shadow-xl border-4 border-yellow-500/80 flex flex-col items-center relative">
+                        <span class="absolute top-0 right-0 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">TOP TIER</span>
+                        <div id="tier-4-icon"></div>
+                        <h3 class="text-3xl font-bold mt-6 text-white">Prime Partner</h3>
+                        <p class="text-lg text-gray-400 mt-2">Reach <span class="font-semibold text-primary-purple">600 users+</span></p>
+                        <div class="w-full mt-6 pt-4 border-t border-gray-700">
+                            <p class="text-xl font-medium text-white mb-1">Commission</p>
+                            <p class="text-2xl font-bold text-green-400">25%</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700/50 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            &copy; 2024 FundingPips. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Inject SVG icons using the helper function defined in the head script block
+        document.getElementById('tier-1-icon').innerHTML = getShieldIcon(1, 'gray');
+        document.getElementById('tier-2-icon').innerHTML = getShieldIcon(2, 'gray');
+        document.getElementById('tier-3-icon').innerHTML = getShieldIcon(3, 'gray');
+        document.getElementById('tier-4-icon').innerHTML = getShieldIcon(4, 'yellow');
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | FundingPips</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-purple': '#8B5CF6',
+                        'dark-navy': '#0F172A',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Top Announcement Banner -->
+    <div class="bg-purple-700 text-center py-2 text-xs sm:text-sm font-medium">
+        Haven't purchased yet? Use code <span class="font-bold">HELLO</span> & Get 20% OFF now on your first purchase!
+    </div>
+
+    <!-- Header / Navigation Bar (Paths are relative: ../ to go up one level) -->
+    <header class="w-full bg-gray-900 border-b border-indigo-700/50 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+            <!-- Logo (Path: ../index.html) -->
+            <a href="/index.html" class="flex items-center space-x-2">
+                <svg class="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span class="text-2xl font-bold text-white tracking-tight">FundingPips<sup
+                        class="text-xs text-primary-purple">®</sup></span>
+            </a>
+
+            <!-- Desktop Navigation Links (Paths are relative: ../FOLDER/file.html) -->
+            <nav class="hidden lg:flex space-x-8 text-sm font-medium">
+                <a href="/index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
+                <a href="../Term _of_use/term.html"
+                    class="text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
+                <a href="../About/About.html"
+                    class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
+                <a href="../Afflieated/Affliated.html"
+                    class="text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
+                <a href="../Faqs/Faqs.html"
+                    class="text-gray-300 hover:text-primary-purple transition duration-150">FAQ</a>
+                <a href="../Contact/contact.html"
+                    class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
+            </nav>
+
+            <!-- Auth Buttons (Paths are relative: ../FOLDER/file.html) -->
+            <div class="flex space-x-4">
+                <a href="../Sign_Up/signup.html"
+                    class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary-purple hover:bg-purple-600 transition duration-150">
+                    Sign Up
+                </a>
+                <a href="signin.html"
+                    class="inline-flex items-center justify-center px-4 py-2 border border-2 border-indigo-500 text-sm font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150">
+                    Dashboard
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Sign In Form -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="w-full max-w-sm bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl border border-indigo-700/50">
+            <h1 class="text-3xl font-extrabold text-primary-purple mb-2 text-center">Welcome Back</h1>
+            <p class="text-center text-gray-400 mb-8">Sign in to access your dashboard.</p>
+            <form action="../index.html" method="GET" class="space-y-6">
+                <div> <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
+                    <input type="email" name="email" id="email" required
+                        class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-primary-purple focus:border-primary-purple transition duration-150">
+                </div>
+                <div> <label for="password" class="block text-sm font-medium text-gray-300 mb-1">Password</label> <input
+                        type="password" name="password" id="password" required
+                        class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:ring-primary-purple focus:border-primary-purple transition duration-150">
+                </div>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center"> <input id="remember-me" name="remember-me" type="checkbox"
+                            class="h-4 w-4 text-primary-purple border-gray-500 rounded focus:ring-primary-purple bg-gray-700">
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-400">Remember me</label>
+                    </div> <a href="#"
+                        class="text-sm text-primary-purple hover:text-purple-400 transition duration-150">Forgot
+                        Password?</a>
+                </div> <button type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-primary-purple hover:bg-purple-600 transition duration-300 transform hover:scale-[1.01]">
+                    Sign In </button>
+            </form>
+
+            <div class="mt-6 text-center text-sm text-gray-400">
+                Don't have an account?
+                <a href="../Sign_Up/signup.html" class="text-primary-purple hover:text-purple-400 font-medium">Sign
+                    Up</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700/50 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            &copy; 2024 FundingPips. All rights reserved.
+        </div>
+    </footer>
+</body>
+
+</html>
