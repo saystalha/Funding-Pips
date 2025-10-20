@@ -11,6 +11,8 @@
         .help-center-bg {
             background: linear-gradient(180deg, rgba(14, 16, 26, 1) 0%, rgba(26, 30, 48, 1) 100%);
         }
+        /* Custom CSS for Accordion Arrow rotation (requires basic JS to function) */
+        .rotate-180 { transform: rotate(180deg); }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
@@ -25,48 +27,60 @@
                 }
             }
         }
+
+        // --- Basic JavaScript for Accordion Functionality ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const arrow = button.querySelector('svg');
+
+                    // Toggle visibility of the answer content
+                    content.classList.toggle('max-h-0');
+                    content.classList.toggle('py-4');
+                    content.classList.toggle('border-b');
+
+                    // Toggle arrow rotation
+                    arrow.classList.toggle('rotate-180');
+                });
+            });
+        });
     </script>
 
-    <!-- Top Announcement Banner -->
     <div class="bg-purple-700 text-center py-2 text-xs sm:text-sm font-medium">
         Haven't purchased yet? Use code <span class="font-bold">HELLO</span> & Get 20% OFF now on your first purchase!
     </div>
 
-    <!-- Header / Navigation Bar (Paths are relative: ../ to go up one level) -->
     <header class="w-full bg-gray-900 border-b border-indigo-700/50 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
-            <!-- Logo (Path: ../index.html) -->
             <a href="../../index.html" class="flex items-center space-x-2">
                 <svg class="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 <span class="text-2xl font-bold text-white tracking-tight">FundingPips<sup class="text-xs text-primary-purple">®</sup></span>
             </a>
 
-            <!-- Desktop Navigation Links (Paths are relative: ../FOLDER/file.html) -->
             <nav class="hidden lg:flex space-x-8 text-sm font-medium">
                 <a href="../../index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
                 <a href="../Term _of_use/term.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
                 <a href="../About/about.html" class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
                 <a href="../Afflieated/Affliated.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
-                <a href="#" class="text-white hover:text-primary-purple transition duration-150">FAQ</a> <!-- Current Page -->
-                <a href="../Contact/contact.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
+                <a href="#" class="text-white hover:text-primary-purple transition duration-150">FAQ</a> <a href="../Contact/contact.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
             </nav>
 
-            <!-- Auth Buttons (Paths are relative: ../FOLDER/file.html) -->
             <div class="flex space-x-4">
                 <a href="../Sign_Up/signup.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary-purple hover:bg-purple-600 transition duration-150">
                     Sign Up
                 </a>
                 <a href="../Sign_In/signin.html" class="inline-flex items-center justify-center px-4 py-2 border border-2 border-indigo-500 text-sm font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition duration-150">
-                    Dashboard
+                    Sign In
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content: Help Center -->
     <main class="flex-grow">
         
-        <!-- Help Center Header and Search -->
         <section class="help-center-bg pt-12 pb-20 md:pt-16 md:pb-24 text-center">
             <h2 class="text-xl font-semibold text-gray-300 mb-2">FundingPips Help Center</h2>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-8">
@@ -81,75 +95,74 @@
             </div>
         </section>
 
-        <!-- Most Viewed Articles Section -->
         <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 mb-16">
-            <div class="bg-white text-gray-900 p-8 md:p-12 rounded-xl shadow-2xl">
-                <h2 class="text-2xl font-bold mb-8">Most Viewed Articles</h2>
+            <div class="bg-gray-800 text-white p-8 md:p-12 rounded-xl shadow-2xl border border-indigo-700/50">
+                <h2 class="text-3xl font-bold mb-8 text-center text-primary-purple">Frequently Asked Questions</h2>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div class="space-y-4">
                     
-                    <!-- Article Link 1 -->
-                    <a href="#" class="flex justify-between items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-150">
-                        <span class="text-lg">Switching Between Active Accounts</span>
-                        <svg class="w-5 h-5 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <div class="border border-indigo-700/50 rounded-lg overflow-hidden">
+                        <button class="accordion-button flex justify-between items-center w-full p-5 text-left font-semibold hover:bg-gray-700 transition duration-150">
+                            <span class="text-lg">Switching Between Active Accounts</span>
+                            <svg class="w-5 h-5 text-primary-purple transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 bg-gray-700 border-indigo-700/50">
+                            <p class="px-5 text-gray-300">You can easily manage multiple active accounts from your trader dashboard. Simply select the account you wish to view or trade on from the account switcher interface.</p>
+                        </div>
+                    </div>
                     
-                    <!-- Article Link 2 -->
-                    <a href="#" class="flex justify-between items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-150">
-                        <span class="text-lg">KYC Challenges and Solutions</span>
-                        <svg class="w-5 h-5 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <div class="border border-indigo-700/50 rounded-lg overflow-hidden">
+                        <button class="accordion-button flex justify-between items-center w-full p-5 text-left font-semibold hover:bg-gray-700 transition duration-150">
+                            <span class="text-lg">How do I request a Reward/Payout?</span>
+                            <svg class="w-5 h-5 text-primary-purple transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 bg-gray-700 border-indigo-700/50">
+                            <p class="px-5 text-gray-300">Payouts can be requested according to your chosen Reward Cycle (weekly, bi-weekly, monthly, or on demand). Navigate to the Payouts section in your dashboard to initiate a withdrawal request.</p>
+                        </div>
+                    </div>
 
-                    <!-- Article Link 3 -->
-                    <a href="#" class="flex justify-between items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-150">
-                        <span class="text-lg">Ready To Start Onboarding?</span>
-                        <svg class="w-5 h-5 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
+                    <div class="border border-indigo-700/50 rounded-lg overflow-hidden">
+                        <button class="accordion-button flex justify-between items-center w-full p-5 text-left font-semibold hover:bg-gray-700 transition duration-150">
+                            <span class="text-lg">What is the IP rule, and how does it affect me?</span>
+                            <svg class="w-5 h-5 text-primary-purple transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 bg-gray-700 border-indigo-700/50">
+                            <p class="px-5 text-gray-300">The IP rule is a security measure to prevent account sharing and unauthorized access. Trading from highly suspicious or geographically inconsistent locations may temporarily flag your account. Please use a consistent trading location.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-indigo-700/50 rounded-lg overflow-hidden">
+                        <button class="accordion-button flex justify-between items-center w-full p-5 text-left font-semibold hover:bg-gray-700 transition duration-150">
+                            <span class="text-lg">KYC (Know Your Customer) Challenges and Solutions</span>
+                            <svg class="w-5 h-5 text-primary-purple transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 bg-gray-700 border-indigo-700/50">
+                            <p class="px-5 text-gray-300">If your KYC verification fails, double-check that your submitted documents (ID and proof of address) are clear, valid, and match the information on your profile. Resubmit corrected documents via the verification portal.</p>
+                        </div>
+                    </div>
 
-                    <!-- Article Link 4 -->
-                    <a href="#" class="flex justify-between items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-150">
-                        <span class="text-lg">Your Top Trading Questions</span>
-                        <svg class="w-5 h-5 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
-
-                    <!-- Article Link 5 -->
-                    <a href="#" class="flex justify-between items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-150">
-                        <span class="text-lg">How do I request a Reward?</span>
-                        <svg class="w-5 h-5 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
-
-                    <!-- Article Link 6 -->
-                    <a href="#" class="flex justify-between items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition duration-150">
-                        <span class="text-lg">What is the IP rule?</span>
-                        <svg class="w-5 h-5 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Other Categories (Placeholder) -->
         <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
             <h2 class="text-3xl font-bold text-white mb-8 text-center">Browse by Category</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Category Card 1 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-indigo-700/50 hover:border-primary-purple transition duration-150 cursor-pointer">
                     <svg class="w-8 h-8 text-primary-purple mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                     <h3 class="text-xl font-semibold mb-2">Account Management</h3>
                     <p class="text-gray-400 text-sm">Everything related to KYC, verification, and profile settings.</p>
                 </div>
-                <!-- Category Card 2 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-indigo-700/50 hover:border-primary-purple transition duration-150 cursor-pointer">
                     <svg class="w-8 h-8 text-primary-purple mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 10v-2"></path></svg>
                     <h3 class="text-xl font-semibold mb-2">Funding & Payouts</h3>
                     <p class="text-gray-400 text-sm">Questions about evaluation fees, profit splits, and withdrawals.</p>
                 </div>
-                <!-- Category Card 3 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-indigo-700/50 hover:border-primary-purple transition duration-150 cursor-pointer">
                     <svg class="w-8 h-8 text-primary-purple mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 5-3-5m3 5V4m3 5V4m3 5V4"></path><path d="M18 9l3-5-3 5m3-5H6"></path></svg>
                     <h3 class="text-xl font-semibold mb-2">Trading Rules</h3>
                     <p class="text-gray-400 text-sm">Details on drawdowns, lot sizes, and toxic trading rules.</p>
                 </div>
-                <!-- Category Card 4 -->
                 <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-indigo-700/50 hover:border-primary-purple transition duration-150 cursor-pointer">
                     <svg class="w-8 h-8 text-primary-purple mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     <h3 class="text-xl font-semibold mb-2">Technical Support</h3>
@@ -160,7 +173,6 @@
         
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 border-t border-gray-700/50 py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
             &copy; 2024 FundingPips. All rights reserved.
