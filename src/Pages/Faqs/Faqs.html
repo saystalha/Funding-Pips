@@ -37,11 +37,18 @@
                     const content = button.nextElementSibling;
                     const arrow = button.querySelector('svg');
 
-                    // Toggle visibility of the answer content
+                    // Close any other open content sections
+                    document.querySelectorAll('.accordion-content').forEach(otherContent => {
+                        if (otherContent !== content && !otherContent.classList.contains('max-h-0')) {
+                            otherContent.classList.add('max-h-0');
+                            otherContent.classList.remove('py-4');
+                            otherContent.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Toggle visibility of the current answer content
                     content.classList.toggle('max-h-0');
                     content.classList.toggle('py-4');
-                    content.classList.toggle('border-b');
-
                     // Toggle arrow rotation
                     arrow.classList.toggle('rotate-180');
                 });
@@ -53,21 +60,25 @@
         Haven't purchased yet? Use code <span class="font-bold">HELLO</span> & Get 20% OFF now on your first purchase!
     </div>
 
+    <!-- Header / Navigation Bar (Paths corrected to work from ./Contact/faq.html) -->
     <header class="w-full bg-gray-900 border-b border-indigo-700/50 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
-            <a href="../../index.html" class="flex items-center space-x-2">
+            <a href="../../../index.html" class="flex items-center space-x-2">
                 <svg class="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 <span class="text-2xl font-bold text-white tracking-tight">FundingPips<sup class="text-xs text-primary-purple">®</sup></span>
             </a>
 
+            <!-- Desktop Navigation Links (Paths corrected: Need ../../ for root access from /Contact) -->
             <nav class="hidden lg:flex space-x-8 text-sm font-medium">
-                <a href="../../index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
+                <a href="../../../index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
                 <a href="../Term _of_use/term.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
                 <a href="../About/about.html" class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
                 <a href="../Afflieated/Affliated.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
-                <a href="#" class="text-white hover:text-primary-purple transition duration-150">FAQ</a> <a href="../Contact/contact.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
+                <a href="#" class="text-white hover:text-primary-purple transition duration-150">FAQ</a> <!-- Current Page -->
+                <a href="../Contact/contact.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
             </nav>
 
+            <!-- Auth Buttons (Paths corrected) -->
             <div class="flex space-x-4">
                 <a href="../Sign_Up/signup.html" class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary-purple hover:bg-purple-600 transition duration-150">
                     Sign Up
@@ -173,9 +184,77 @@
         
     </main>
 
-    <footer class="bg-gray-800 border-t border-gray-700/50 py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
-            &copy; 2024 FundingPips. All rights reserved.
+    <!-- Footer from index.html (Paths are corrected to work from ./Contact/faq.html) -->
+    <footer class="bg-dark-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 border-b border-indigo-700/50 pb-8">
+                <div>
+                    <h5 class="text-lg font-bold mb-4">Company</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <!-- Added Home link with correct relative path -->
+                        <li><a href="../../index.html" class="hover:text-primary-purple transition duration-150">Home</a></li>
+                        <!-- Links corrected to navigate out of the /Contact folder -->
+                        <li><a href="../Term _of_use/term.html" class="hover:text-primary-purple transition duration-150">Terms of Use</a></li>
+                        <li><a href="../Contact/contact.html" class="hover:text-primary-purple transition duration-150">Contact Us</a></li>
+                        <li><a href="../Afflieated/Affliated.html" class="hover:text-primary-purple transition duration-150">Affiliate Program</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-4">Community</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <!-- Link corrected to navigate out of the /Contact folder -->
+                        <li><a href="../About/about.html" class="hover:text-primary-purple transition duration-150">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary-purple transition duration-150">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary-purple transition duration-150">Brand kit</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-4">Legal</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <!-- Link corrected to navigate out of the /Contact folder -->
+                        <li><a href="../Term _of_use/term.html" class="hover:text-primary-purple transition duration-150">Terms & Conditions</a></li>
+                        <li><a href="#" class="hover:text-primary-purple transition duration-150">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-600 text-sm font-bold rounded text-white border border-gray-500">ISO</div>
+                        <p class="text-sm text-gray-300">ISO 27001:2022 - Information Security Management System - ISMS</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-600 text-sm font-bold rounded text-white border border-gray-500">ISO</div>
+                        <p class="text-sm text-gray-300">ISO 22301:2019 - Business Continuity Management Systems - BCMS</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 flex items-center justify-center bg-gray-600 text-sm font-bold rounded text-white border border-gray-500">ISO</div>
+                        <p class="text-sm text-gray-300">ISO 9001:2015 - Quality Management System - QMS</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <svg class="w-6 h-6 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span>FundingPips<sup class="text-xs text-primary-purple">®</sup> &copy; 2024. All rights reserved.</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="flex space-x-4 text-gray-400">
+                        <a href="#" class="hover:text-primary-purple transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-5 0c0 .83-.67 1.5-1.5 1.5S8 9.33 8 8.5 8.67 7 9.5 7s1.5.67 1.5 1.5z"/><path fill-rule="evenodd" d="M19.74 3.06c-1.4-.4-2.82-.4-4.22-.4H8.48c-1.4 0-2.82 0-4.22.4A.94.94 0 003.5 4.01c-.81 4.5 0 8.94 0 8.94s.78 1.15 1.8 1.15H6.5v2.25l2.25-2.25H15.5c1.02 0 1.8-.75 1.8-.75s.81-4.44 0-8.94a.94.94 0 00-.56-.95zM15.5 13.5H8.5V11h7v2.5z"/></svg></a>
+                        <a href="#" class="hover:text-primary-purple transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.564V12h2.775l-.445 2.891h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg></a>
+                        <a href="#" class="hover:text-primary-purple transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.7.01 3.68.04 1.02.03 1.7.21 2.3.46.6.25 1.1.6 1.6 1.1.5.5.85 1 1.1 1.6.25.6.43 1.28.46 2.3.03.98.04 1.25.04 3.68s-.01 2.7-.04 3.68c-.03 1.02-.21 1.7-.46 2.3-.25.6-.6 1.1-1.1 1.6-.5.5-1 .85-1.6 1.1-.6.25-1.28.43-2.3.46-.98.03-1.25.04-3.68.04s-2.7-.01-3.68-.04c-1.02-.03-1.7-.21-2.3-.46-.6-.25-1.1-.6-1.6-1.1-.5-.5-.85-1-1.1-1.6-.25-.6-.43-1.28-.46-2.3-.03-.98-.04-1.25-.04-3.68s.01-2.7.04-3.68c.03-1.02.21-1.7.46-2.3.25-.6.6-1.1 1.1-1.6.5-.5 1-.85 1.6-1.1.6-.25 1.28-.43 2.3-.46.98-.03 1.25-.04 3.68-.04zm0 2c-2.71 0-3.05.01-4.06.04-1.0.03-1.5.21-1.9.41-.4.2-.7.5-.9.7-.2.2-.4.5-.5.9-.2.4-.3.9-.3 1.9-.03 1.01-.04 1.35-.04 4.06s.01 3.05.04 4.06c.03 1.0.21 1.5.41 1.9.2.4.5.7.7.9.2.2.5.4.9.5.4.2.9.3 1.9.3 1.01.03 1.35.04 4.06.04s3.05-.01 4.06-.04c1.0-.03 1.5-.21 1.9-.41.4-.2.7-.5.7-.9.2-.4.3-.9.3-1.9.03-1.01.04-1.35.04-4.06s-.01-3.05-.04-4.06c-.03-1.0-.21-1.5-.41-1.9-.2-.4-.5-.7-.7-.9-.2-.2-.5-.4-.9-.5-.4-.2-.9-.3-1.9-.3-1.01-.03-1.35-.04-4.06-.04zm0 4a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm4.5-5.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" clip-rule="evenodd"></path></svg></a>
+                        <a href="#" class="hover:text-primary-purple transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.764 1.75-1.764.965 0 1.75.79 1.75 1.764 0 .975-.785 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.142-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.75 7 2.454v6.781z"/></svg></a>
+                        <a href="#" class="hover:text-primary-purple transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.3 12.3c-.3 1.1-.9 1.6-2 1.8-.7.2-2.1.2-3.7.2s-3-.1-3.7-.2c-1-.2-1.7-.7-2-1.8-.3-1.1-.3-3.2 0-4.3.3-1.1.9-1.6 2-1.8.7-.2 2.1-.2 3.7-.2s3.1.1 3.7.2c1.1.2 1.7.7 2 1.8.3 1.1.3 3.2 0 4.3zM10 9.5l4 2.5-4 2.5v-5z"/></svg></a>
+                        <a href="#" class="hover:text-primary-purple transition duration-150"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 4H5.1C4.5 4 4 4.5 4 5.1v13.8c0 .6.5 1.1 1.1 1.1h13.8c.6 0 1.1-.5 1.1-1.1V5.1c0-.6-.5-1.1-1.1-1.1zm-1.4 4.5l-4.2 4.2-4.2-4.2h8.4zm-8.4 8.5v-2.3l-2 2h4.3v-2.3l-2.3-2.3-2 2.3zm4.2 0l-2 2h4.3v-2.3l-2.3-2.3 2 2.3z"/></svg></a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2 p-2 bg-green-600 rounded-md">
+                        <span class="text-white font-bold">Trustpilot</span>
+                        <span class="text-white text-xs">4.7 / 5</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
