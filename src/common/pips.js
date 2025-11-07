@@ -1,1 +1,1 @@
-const
+console.log("Pips module loaded");

@@ -1,0 +1,281 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0F172A;
+    color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.light {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    border-bottom: 3px solid #8B5CF6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ffffff;
+    margin-top: 30px;
+}
+
+/* ---------------------------------- */
+/* 2. Search & Filter Section */
+/* ---------------------------------- */
+#search-filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+#search-input {
+    padding: 10px 15px;
+    border: 1px solid #475569;
+    border-radius: 5px;
+    flex-grow: 1;
+    min-width: 250px;
+    font-size: 1em;
+    background-color: #1e293b;
+    color: white;
+}
+
+#filter-options button {
+    background-color: #334155;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 500;
+}
+
+#filter-options button:hover {
+    background-color: #475569;
+}
+
+#filter-options button.active {
+    background-color: #8B5CF6;
+    color: white;
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+}
+
+
+#add-account-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    background-color: #1e293b;
+}
+
+#add-account-form input,
+#add-account-form select {
+    padding: 10px;
+    border: 1px solid #475569;
+    border-radius: 5px;
+    flex: 1 1 150px;
+    min-width: 120px;
+    background-color: #0F172A;
+    color: white;
+}
+
+#add-account-form input::placeholder {
+    color: #94a3b8;
+}
+
+#add-account-form button[type="submit"] {
+    background-color: #8B5CF6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+#add-account-form button[type="submit"]:hover {
+    background-color: #6d28d9;
+}
+
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.card {
+    border: 3px solid #4338ca;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    background-color: #1e293b;
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #8B5CF6;
+}
+
+.card-body p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #94a3b8;
+}
+
+.status {
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.status.evaluation {
+    color: #ffaa00;
+    background-color: rgba(255, 170, 0, 0.2);
+}
+
+.status.active {
+    color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.2);
+}
+
+.card-footer {
+    padding-top: 15px;
+    border-top: 1px solid #475569;
+    margin-top: 10px;
+    text-align: right;
+}
+
+.card-footer button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.edit-btn {
+    background-color: #8B5CF6;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #6d28d9;
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    background-color: #ef4444;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+}
+
+.modal {
+    display: none;
+
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #0F172A;
+    color: white;
+    padding: 30px;
+    border: 1px solid #4338ca;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(139, 92, 246, 0.3);
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-content h3 {
+    color: #8B5CF6;
+    margin-top: 0;
+}
+
+#edit-account-form label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #e2e8f0;
+}
+
+#edit-account-form input,
+#edit-account-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #475569;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #1e293b;
+    color: white;
+}
+
+.modal-actions {
+    text-align: right;
+    margin-top: 20px;
+}
+
+#edit-account-form #update-button {
+    background-color: #8B5CF6;
+    color: white;
+    border: none;
+}
+
+#edit-account-form #update-button:hover {
+    background-color: #6d28d9;
+}
+
+#edit-account-form #cancel-button {
+    background-color: #334155;
+    color: white;
+    border: none;
+}
+
+#edit-account-form #cancel-button:hover {
+    background-color: #475569;
+}

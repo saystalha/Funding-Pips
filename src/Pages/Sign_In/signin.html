@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In | FundingPips</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../../../utils/themeutils.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../../../Assests/Favicon/favicon.ico"> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
@@ -49,7 +51,8 @@
             </a>
 
             <!-- Desktop Navigation Links (Paths are relative: ../FOLDER/file.html) -->
-            <nav class="hidden lg:flex space-x-8 text-sm font-medium">
+            <nav class="flex items-center space-x-4">
+                <div class="hidden lg:flex space-x-8 text-sm font-medium">
                 <a href="../../../index.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Home</a>
                 <a href="../Term _of_use/term.html"
                     class="text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
@@ -57,14 +60,22 @@
                     class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
                 <a href="../Afflieated/Affliated.html"
                     class="text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
-                <a href="../Faqs/Faqs.html"
-                    class="text-gray-300 hover:text-primary-purple transition duration-150">FAQ</a>
                 <a href="../Contact/contact.html"
                     class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
-            </nav>
+                <a href="../forms/forms.html" class="text-gray-300 hover:text-primary-purple transition duration-150">Accounts</a>
+                </div>
 
             <!-- Auth Buttons (Paths are relative: ../FOLDER/file.html) -->
             <div class="flex space-x-4">
+                <button id="theme-toggle" type="button"
+                    class="p-2 rounded-full text-gray-400 hover:text-primary-purple hover:bg-gray-800 transition duration-150 focus:outline-none flex items-center justify-center">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                </button>
                 <a href="../Sign_Up/signup.html"
                     class="hidden sm:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary-purple hover:bg-purple-600 transition duration-150">
                     Sign Up
@@ -74,6 +85,7 @@
                     Sign In
                 </a>
             </div>
+            </nav>
         </div>
     </header>
 
