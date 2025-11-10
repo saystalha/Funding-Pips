@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en" class="dark"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FundingPips | Built by Traders for Traders</title>
@@ -9,7 +7,6 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module" src="./src/home/home.js"></script>
-
     <script type="module" src="./utils/themeutils.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -19,19 +16,20 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        body.light {
-            background-color: #f8f9fa;
-            color: #212529;
+        /* Base (Light Mode) Glow */
+        .hero-glow {
+            background-image: radial-gradient(circle at center, rgba(147, 51, 234, 0.1) 0%, rgba(200, 150, 255, 0.05) 20%, rgba(255, 255, 255, 0) 70%);
+            z-index: 0;
         }
 
-        .hero-glow {
+        /* Dark Mode Glow Overrides (Active initially) */
+        .dark .hero-glow {
             background-image: radial-gradient(circle at center, rgba(79, 70, 229, 0.2) 0%, rgba(109, 40, 217, 0.1) 20%, rgba(17, 24, 39, 0) 70%);
-            z-index: 0;
         }
     </style>
 </head>
 
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white min-h-screen flex flex-col">
     <script>
         // Tailwind configuration for class-based dark mode
         tailwind.config = {
@@ -47,42 +45,40 @@
         }
     </script>
 
-    <article class="bg-purple-700 text-center py-2 text-xs sm:text-sm font-medium">
+    <article class="bg-purple-700 text-center py-2 text-xs sm:text-sm font-medium text-white">
         Haven't purchased yet? Use code <span class="font-bold">HELLO</span> & Get 20% OFF now on your first purchase!
     </article>
 
-    <header class="w-full bg-gray-900 border-b border-indigo-700/50 shadow-lg sticky top-0 z-50">
+    <header class="w-full bg-white dark:bg-gray-900 border-b border-indigo-200/50 dark:border-indigo-700/50 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
-            <!-- Logo/Brand Link -->
             <a href="index.html" class="flex items-center space-x-2">
                 <svg class="w-8 h-8 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
-                <span class="text-2xl font-bold text-white tracking-tight">FundingPips<sup
+                <span class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">FundingPips<sup
                         class="text-xs text-primary-purple">®</sup></span>
             </a>
 
             <nav class="flex items-center space-x-4">
                 <div class="hidden lg:flex space-x-8 text-sm font-medium">
-                    <a href="#" class="text-white hover:text-primary-purple transition duration-150">Home</a>
+                    <a href="#" class="text-gray-900 dark:text-white hover:text-primary-purple transition duration-150">Home</a>
                     <a href="./src/Pages/Term _of_use/term.html"
-                        class="text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary-purple transition duration-150">Terms of Use</a>
                     <a href="./src/Pages/About/About.html"
-                        class="text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary-purple transition duration-150">About us</a>
                     <a href="./src/Pages/Afflieated/Affliated.html"
-                        class="text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary-purple transition duration-150">Affiliate Program</a>
                     <a href="./src/Pages/Contact/contact.html"
-                        class="text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary-purple transition duration-150">Contact us</a>
                     <a href="./src/Pages/forms/forms.html"
-                        class="text-gray-300 hover:text-primary-purple transition duration-150">Accounts</a>
-
+                        class="text-gray-600 dark:text-gray-300 hover:text-primary-purple transition duration-150">Accounts</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
                     <button id="theme-toggle" type="button"
-                        class="p-2 rounded-full text-gray-400 hover:text-primary-purple hover:bg-gray-800 transition duration-150 focus:outline-none flex items-center justify-center">
+                        class="p-2 rounded-full text-gray-600 dark:text-gray-400 hover:text-primary-purple hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150 focus:outline-none flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -108,7 +104,7 @@
         <section class="relative">
             <div class="hero-glow absolute inset-0"></div>
             <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-24 md:pt-32 md:pb-40 text-center">
-                <h1 class="text-6xl sm:text-7xl lg:text-9xl font-extrabold tracking-tighter leading-none mb-8">
+                <h1 class="text-6xl sm:text-7xl lg:text-9xl font-extrabold tracking-tighter leading-none mb-8 text-gray-900 dark:text-white">
                     Built by traders
                     <span class="block relative">
                         <span class="text-primary-purple text-4xl sm:text-6xl lg:text-8xl mr-4"
@@ -116,7 +112,7 @@
                         for traders.
                     </span>
                 </h1>
-                <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-400">
+                <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-400">
                     Join over 1,000,000 traders in the world's leading firm. Trade in a fully simulated, risk-free
                     environment and earn real profit splits.
                 </p>
@@ -129,18 +125,18 @@
             </div>
         </section>
 
-        <section class="py-16 bg-dark-navy border-b border-indigo-700/50">
+        <section class="py-16 bg-gray-100 dark:bg-dark-navy border-b border-indigo-200/50 dark:border-indigo-700/50">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-                <h2 class="text-4xl font-extrabold text-white mb-4">Buckle Up, Your Journey Starts Here!</h2>
-                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
+                <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Buckle Up, Your Journey Starts Here!</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
                     We evaluate according to objectives that best fit your style. From beginners to experts, traders
                     from 195+ countries trust our platform.
                 </p>
 
                 <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-8">
-                    <span class="px-4 py-2 text-sm font-medium rounded-full bg-blue-700/50 text-white">Zero</span>
-                    <span class="px-4 py-2 text-sm font-medium rounded-full bg-blue-700/50 text-white">1 step</span>
+                    <span class="px-4 py-2 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-700/50 text-blue-800 dark:text-white">Zero</span>
+                    <span class="px-4 py-2 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-700/50 text-blue-800 dark:text-white">1 step</span>
                     <span class="px-4 py-2 text-sm font-medium rounded-full bg-primary-purple text-white shadow-lg">2
                         step</span>
                     <span
@@ -152,66 +148,66 @@
 
                 <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-12">
                     <span
-                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-white hover:bg-indigo-600 transition duration-150">$5K</span>
+                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-indigo-700 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-600 transition duration-150">$5K</span>
                     <span
-                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-white hover:bg-indigo-600 transition duration-150">$10K</span>
+                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-indigo-700 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-600 transition duration-150">$10K</span>
                     <span
-                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-white hover:bg-indigo-600 transition duration-150">$20K</span>
+                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-indigo-700 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-600 transition duration-150">$20K</span>
                     <span
-                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-white hover:bg-indigo-600 transition duration-150">$25K</span>
+                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-indigo-700 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-600 transition duration-150">$25K</span>
                     <span
-                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-white hover:bg-indigo-600 transition duration-150">$50K</span>
+                        class="px-4 py-2 text-sm font-medium rounded-lg border border-indigo-500 text-indigo-700 dark:text-white hover:bg-indigo-100 dark:hover:bg-indigo-600 transition duration-150">$50K</span>
                     <span
                         class="px-4 py-2 text-sm font-medium rounded-lg bg-primary-purple text-white shadow-lg">$100K</span>
                 </div>
 
-                <article class="bg-gray-800 p-8 rounded-xl border border-indigo-700/50 shadow-2xl">
+                <article class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 shadow-2xl">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
                         <div>
                             <h3 class="text-2xl font-bold text-primary-purple mb-1">Evaluation Stage</h3>
-                            <p class="text-gray-400 mb-6">(Student & Practitioner)</p>
+                            <p class="text-gray-500 dark:text-gray-400 mb-6">(Student & Practitioner)</p>
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-primary-purple mb-1">Master Stage</h3>
-                            <p class="text-gray-400 mb-6">(Master)</p>
+                            <p class="text-gray-500 dark:text-gray-400 mb-6">(Master)</p>
                         </div>
                     </div>
 
-                    <h4 class="text-lg font-semibold text-white mb-4 mt-4 border-t border-indigo-700/50 pt-4">Reward
+                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 mt-4 border-t border-indigo-200/50 dark:border-indigo-700/50 pt-4">Reward
                         Cycles</h4>
 
                     <div class="flex flex-wrap justify-center gap-6">
-                        <div class="flex items-center space-x-2 text-lg text-green-400">
+                        <div class="flex items-center space-x-2 text-lg text-green-600 dark:text-green-400">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span class="text-white">Tuesday 60%</span>
+                            <span class="text-gray-900 dark:text-white">Tuesday 60%</span>
                         </div>
-                        <div class="flex items-center space-x-2 text-lg text-green-400">
+                        <div class="flex items-center space-x-2 text-lg text-green-600 dark:text-green-400">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span class="text-white">Bi-weekly 80%</span>
+                            <span class="text-gray-900 dark:text-white">Bi-weekly 80%</span>
                         </div>
-                        <div class="flex items-center space-x-2 text-lg text-green-400">
+                        <div class="flex items-center space-x-2 text-lg text-green-600 dark:text-green-400">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span class="text-white">On Demand 90%</span>
+                            <span class="text-gray-900 dark:text-white">On Demand 90%</span>
                         </div>
-                        <div class="flex items-center space-x-2 text-lg text-green-400">
+                        <div class="flex items-center space-x-2 text-lg text-green-600 dark:text-green-400">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span class="text-white">Monthly 100%</span>
+                            <span class="text-gray-900 dark:text-white">Monthly 100%</span>
                         </div>
                     </div>
                 </article>
@@ -219,82 +215,82 @@
             </div>
         </section>
 
-        <section class="py-16 bg-gray-900 border-t border-indigo-700/50">
+        <section class="py-16 bg-white dark:bg-gray-900 border-t border-indigo-200/50 dark:border-indigo-700/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-extrabold text-white mb-12">Why FundingPips?</h2>
+                <h2 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-12">Why FundingPips?</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
                     <article
-                        class="p-6 bg-gray-800 rounded-xl border border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
+                        class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
                         <svg class="w-10 h-10 text-primary-purple mx-auto mb-4" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                             </path>
                         </svg>
-                        <h3 class="text-xl font-bold text-white mb-2">Zero Reward Denials.</h3>
-                        <p class="text-gray-400">Trade with a peace of mind.</p>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Zero Reward Denials.</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Trade with a peace of mind.</p>
                     </article>
 
                     <article
-                        class="p-6 bg-gray-800 rounded-xl border border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
+                        class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
                         <svg class="w-10 h-10 text-primary-purple mx-auto mb-4" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-2a2 2 0 00-2 2v5M7 10v9m6 0a2 2 0 002-2v-4a2 2 0 00-2-2h-2a2 2 0 00-2 2v4a2 2 0 002 2h2">
                             </path>
                         </svg>
-                        <h3 class="text-xl font-bold text-white mb-2">Your Favorite Platforms.</h3>
-                        <p class="text-gray-400">MetaTrader 5, Match-Trader and cTrader.</p>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Your Favorite Platforms.</h3>
+                        <p class="text-gray-500 dark:text-gray-400">MetaTrader 5, Match-Trader and cTrader.</p>
                     </article>
 
                     <article
-                        class="p-6 bg-gray-800 rounded-xl border border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
+                        class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
                         <svg class="w-10 h-10 text-primary-purple mx-auto mb-4" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6">
                             </path>
                         </svg>
-                        <h3 class="text-xl font-bold text-white mb-2">Flexible Reward Cycles.</h3>
-                        <p class="text-gray-400">The choice is yours: weekly, bi-weekly, monthly or on demand.</p>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Flexible Reward Cycles.</h3>
+                        <p class="text-gray-500 dark:text-gray-400">The choice is yours: weekly, bi-weekly, monthly or on demand.</p>
                     </article>
 
                     <article
-                        class="p-6 bg-gray-800 rounded-xl border border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
+                        class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl border border-indigo-200/50 dark:border-indigo-700/50 shadow-xl transform hover:scale-[1.03] transition duration-300">
                         <svg class="w-10 h-10 text-primary-purple mx-auto mb-4" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V3m0 9v3m0 3.002V21m3.243-3.243l-1.414-1.414M9.243 12.757l-1.414 1.414m-1.782-4.142L5.599 7.401m8.586 4.142l1.414 1.414m-5.626-6.495L12 3m-4.243 4.243L5.599 7.401M16.401 7.401l-1.414 1.414">
                             </path>
                         </svg>
-                        <h3 class="text-xl font-bold text-white mb-2">We Grow Together.</h3>
-                        <p class="text-gray-400">Trade up to $300,000 in simulated capital.</p>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">We Grow Together.</h3>
+                        <p class="text-gray-500 dark:text-gray-400">Trade up to $300,000 in simulated capital.</p>
                     </article>
 
                 </div>
             </div>
         </section>
 
-        <section class="py-16 bg-gray-800/50">
+        <section class="py-16 bg-gray-200 dark:bg-gray-800/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl font-extrabold text-white mb-10">Our Success by the Numbers</h2>
+                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white mb-10">Our Success by the Numbers</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <article class="p-4 border-r border-indigo-700/50 md:border-none">
+                    <article class="p-4 border-r border-indigo-200/50 dark:border-indigo-700/50 md:border-none">
                         <div class="text-4xl font-extrabold text-primary-purple">1.2M+</div>
-                        <div class="text-lg text-gray-400 mt-1">Traders Worldwide</div>
+                        <div class="text-lg text-gray-500 dark:text-gray-400 mt-1">Traders Worldwide</div>
                     </article>
                     <article class="p-4">
                         <div class="text-4xl font-extrabold text-primary-purple">$500M+</div>
-                        <div class="text-lg text-gray-400 mt-1">Total Payouts</div>
+                        <div class="text-lg text-gray-500 dark:text-gray-400 mt-1">Total Payouts</div>
                     </article>
-                    <article class="p-4 border-r border-indigo-700/50 md:border-none">
+                    <article class="p-4 border-r border-indigo-200/50 dark:border-indigo-700/50 md:border-none">
                         <div class="text-4xl font-extrabold text-primary-purple">4.7 / 5</div>
-                        <div class="text-lg text-gray-400 mt-1">Trustpilot Score</div>
+                        <div class="text-lg text-gray-500 dark:text-gray-400 mt-1">Trustpilot Score</div>
                     </article>
                     <article class="p-4">
                         <div class="text-4xl font-extrabold text-primary-purple">195+</div>
-                        <div class="text-lg text-gray-400 mt-1">Countries Served</div>
+                        <div class="text-lg text-gray-500 dark:text-gray-400 mt-1">Countries Served</div>
                     </article>
                 </div>
             </div>
@@ -302,121 +298,121 @@
 
     </main>
 
-    <footer class="bg-dark-navy text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 border-b border-indigo-700/50 pb-8">
-                <article>
-                    <h5 class="text-lg font-bold mb-4">Company</h5>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="./src/Pages/Term _of_use/term.html"
-                                class="hover:text-primary-purple transition duration-150">Terms of Use</a></li>
-                        <li><a href="./src/Pages/Contact/contact.html"
-                                class="hover:text-primary-purple transition duration-150">Contact Us</a></li>
-                        <li><a href="./src/Pages/Afflieated/Affliated.html"
-                                class="hover:text-primary-purple transition duration-150">Affiliate Program</a></li>
-                    </ul>
-                </article>
-                <article>
-                    <h5 class="text-lg font-bold mb-4">Community</h5>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="./src/Pages/About/About.html"
-                                class="hover:text-primary-purple transition duration-150">About Us</a></li>
-                        <li><a href="#" class="hover:text-primary-purple transition duration-150">Blog</a></li>
-                        <li><a href="#" class="hover:text-primary-purple transition duration-150">Brand kit</a></li>
-                    </ul>
-                </article>
-                <article>
-                    <h5 class="text-lg font-bold mb-4">Legal</h5>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="./src/Pages/Term _of_use/term.html"
-                                class="hover:text-primary-purple transition duration-150">Terms & Conditions</a></li>
-                        <li><a href="#" class="hover:text-primary-purple transition duration-150">Privacy Policy</a>
-                        </li>
-                    </ul>
-                </article>
+    <footer class="bg-white dark:bg-dark-navy text-gray-900 dark:text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 border-b border-indigo-200/50 dark:border-indigo-700/50 pb-8">
+            <article>
+                <h5 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Company</h5>
+                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li><a href="./src/Pages/Term _of_use/term.html"
+                            class="hover:text-primary-purple transition duration-150">Terms of Use</a></li>
+                    <li><a href="./src/Pages/Contact/contact.html"
+                            class="hover:text-primary-purple transition duration-150">Contact Us</a></li>
+                    <li><a href="./src/Pages/Afflieated/Affliated.html"
+                            class="hover:text-primary-purple transition duration-150">Affiliate Program</a></li>
+                </ul>
+            </article>
+            <article>
+                <h5 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Community</h5>
+                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li><a href="./src/Pages/About/About.html"
+                            class="hover:text-primary-purple transition duration-150">About Us</a></li>
+                    <li><a href="#" class="hover:text-primary-purple transition duration-150">Blog</a></li>
+                    <li><a href="#" class="hover:text-primary-purple transition duration-150">Brand kit</a></li>
+                </ul>
+            </article>
+            <article>
+                <h5 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Legal</h5>
+                <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li><a href="./src/Pages/Term _of_use/term.html"
+                            class="hover:text-primary-purple transition duration-150">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-primary-purple transition duration-150">Privacy Policy</a>
+                    </li>
+                </ul>
+            </article>
 
-                <article class="col-span-2 space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-gray-600 text-sm font-bold rounded text-white border border-gray-500">
-                            ISO</div>
-                        <p class="text-sm text-gray-300">ISO 27001:2022 - Information Security Management System - ISMS
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-gray-600 text-sm font-bold rounded text-white border border-gray-500">
-                            ISO</div>
-                        <p class="text-sm text-gray-300">ISO 22301:2019 - Business Continuity Management Systems - BCMS
-                        </p>
-                    </div>
-                    <div class="flex items-center space-x-3">
-                        <div
-                            class="w-8 h-8 flex items-center justify-center bg-gray-600 text-sm font-bold rounded text-white border border-gray-500">
-                            ISO</div>
-                        <p class="text-sm text-gray-300">ISO 9001:2015 - Quality Management System - QMS</p>
-                    </div>
-                </article>
-            </div>
-
-            <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-                <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <svg class="w-6 h-6 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                    <span>FundingPips<sup class="text-xs text-primary-purple">®</sup> &copy; 2024. All rights
-                        reserved.</span>
+            <article class="col-span-2 space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-8 h-8 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-sm font-bold rounded text-gray-900 dark:text-white border border-gray-400 dark:border-gray-500">
+                        ISO</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">ISO 27001:2022 - Information Security Management System - ISMS
+                    </p>
                 </div>
-                <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-                    <nav class="flex space-x-4 text-gray-400">
-                        <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="Discord"><svg
-                                class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M16 8.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-5 0c0 .83-.67 1.5-1.5 1.5S8 9.33 8 8.5 8.67 7 9.5 7s1.5.67 1.5 1.5z" />
-                                <path fill-rule="evenodd"
-                                    d="M19.74 3.06c-1.4-.4-2.82-.4-4.22-.4H8.48c-1.4 0-2.82 0-4.22.4A.94.94 0 003.5 4.01c-.81 4.5 0 8.94 0 8.94s.78 1.15 1.8 1.15H6.5v2.25l2.25-2.25H15.5c1.02 0 1.8-.75 1.8-.75s.81-4.44 0-8.94a.94.94 0 00-.56-.95zM15.5 13.5H8.5V11h7v2.5z" />
-                            </svg></a>
-                        <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="Facebook"><svg
-                                class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.564V12h2.775l-.445 2.891h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                    clip-rule="evenodd"></path>
-                            </svg></a>
-                        <a href="#" class="hover:text-primary-purple transition duration-150"
-                            aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.7.01 3.68.04 1.02.03 1.7.21 2.3.46.6.25 1.1.6 1.6 1.1.5.5.85 1 1.1 1.6.25.6.43 1.28.46 2.3.03.98.04 1.25.04 3.68s-.01 2.7-.04 3.68c-.03 1.02-.21 1.7-.46 2.3-.25.6-.6 1.1-1.1 1.6-.5.5-1 .85-1.6 1.1-.6.25-1.28.43-2.3.46-.98.03-1.25.04-3.68.04s-2.7-.01-3.68-.04c-1.02-.03-1.7-.21-2.3-.46-.6-.25-1.1-.6-1.6-1.1-.5-.5-.85-1-1.1-1.6-.25-.6-.43-1.28-.46-2.3-.03-.98-.04-1.25-.04-3.68s.01-2.7.04-3.68c.03-1.02.21-1.7.46-2.3.25-.6.6-1.1 1.1-1.6.5-.5 1-.85 1.6-1.1.6-.25 1.28-.43 2.3-.46.98-.03 1.25-.04 3.68-.04zm0 2c-2.71 0-3.05.01-4.06.04-1.0.03-1.5.21-1.9.41-.4.2-.7.5-.9.7-.2.2-.4.5-.5.9-.2.4-.3.9-.3 1.9-.03 1.01-.04 1.35-.04 4.06s.01 3.05.04 4.06c.03 1.0.21 1.5.41 1.9.2.4.5.7.7.9.2.2.5.4.9.5.4.2.9.3 1.9.3 1.01.03 1.35.04 4.06.04s3.05-.01 4.06-.04c1.0-.03 1.5-.21 1.9-.41.4-.2.7-.5.9-.7.2-.2.4-.5.5-.9.2-.4.3-.9.3-1.9.03-1.01.04-1.35.04-4.06s-.01-3.05-.04-4.06c-.03-1.0-.21-1.5-.41-1.9-.2-.4-.5-.7-.7-.9-.2-.2-.5-.4-.9-.5-.4-.2-.9-.3-1.9-.3-1.01-.03-1.35-.04-4.06-.04zm0 4a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm4.5-5.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
-                                    clip-rule="evenodd"></path>
-                            </svg></a>
-                        <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="LinkedIn"><svg
-                                class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.764 1.75-1.764.965 0 1.75.79 1.75 1.764 0 .975-.785 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.142-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.75 7 2.454v6.781z" />
-                            </svg></a>
-                        <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="YouTube"><svg
-                                class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.3 12.3c-.3 1.1-.9 1.6-2 1.8-.7.2-2.1.2-3.7.2s-3-.1-3.7-.2c-1-.2-1.7-.7-2-1.8-.3-1.1-.3-3.2 0-4.3.3-1.1.9-1.6 2-1.8.7-.2 2.1-.2 3.7-.2s3.1.1 3.7.2c1.1.2 1.7.7 2 1.8.3 1.1.3 3.2 0 4.3zM10 9.5l4 2.5-4 2.5v-5z" />
-                            </svg></a>
-                        <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="Telegram"><svg
-                                class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M18.9 4H5.1C4.5 4 4 4.5 4 5.1v13.8c0 .6.5 1.1 1.1 1.1h13.8c.6 0 1.1-.5 1.1-1.1V5.1c0-.6-.5-1.1-1.1-1.1zm-1.4 4.5l-4.2 4.2-4.2-4.2h8.4zm-8.4 8.5v-2.3l-2 2h4.3v-2.3l-2.3-2.3-2 2.3zm4.2 0l-2 2h4.3v-2.3l-2.3-2.3 2 2.3z" />
-                            </svg></a>
-                    </nav>
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-8 h-8 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-sm font-bold rounded text-gray-900 dark:text-white border border-gray-400 dark:border-gray-500">
+                        ISO</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">ISO 22301:2019 - Business Continuity Management Systems - BCMS
+                    </p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-8 h-8 flex items-center justify-center bg-gray-300 dark:bg-gray-600 text-sm font-bold rounded text-gray-900 dark:text-white border border-gray-400 dark:border-gray-500">
+                        ISO</div>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">ISO 9001:2015 - Quality Management System - QMS</p>
+                </div>
+            </article>
+        </div>
 
-                    <div class="flex items-center space-x-2 p-2 bg-green-600 rounded-md">
-                        <span class="text-white font-bold">Trustpilot</span>
-                        <span class="text-white text-xs">4.7 / 5</span>
-                    </div>
+        <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-400">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <svg class="w-6 h-6 text-primary-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+                <span>FundingPips<sup class="text-xs text-primary-purple">®</sup> &copy; 2024. All rights
+                    reserved.</span>
+            </div>
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <nav class="flex space-x-4 text-gray-600 dark:text-gray-400">
+                    <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="Discord"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16 8.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zm-5 0c0 .83-.67 1.5-1.5 1.5S8 9.33 8 8.5 8.67 7 9.5 7s1.5.67 1.5 1.5z" />
+                            <path fill-rule="evenodd"
+                                d="M19.74 3.06c-1.4-.4-2.82-.4-4.22-.4H8.48c-1.4 0-2.82 0-4.22.4A.94.94 0 003.5 4.01c-.81 4.5 0 8.94 0 8.94s.78 1.15 1.8 1.15H6.5v2.25l2.25-2.25H15.5c1.02 0 1.8-.75 1.8-.75s.81-4.44 0-8.94a.94.94 0 00-.56-.95zM15.5 13.5H8.5V11h7v2.5z" />
+                        </svg></a>
+                    <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="Facebook"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.564V12h2.775l-.445 2.891h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                                clip-rule="evenodd"></path>
+                        </svg></a>
+                    <a href="#" class="hover:text-primary-purple transition duration-150"
+                        aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M12.315 2c2.43 0 2.7.01 3.68.04 1.02.03 1.7.21 2.3.46.6.25 1.1.6 1.6 1.1.5.5.85 1 1.1 1.6.25.6.43 1.28.46 2.3.03.98.04 1.25.04 3.68s-.01 2.7-.04 3.68c-.03 1.02-.21 1.7-.46 2.3-.25.6-.6 1.1-1.1 1.6-.5.5-1 .85-1.6 1.1-.6.25-1.28.43-2.3.46-.98.03-1.25.04-3.68.04s-2.7-.01-3.68-.04c-1.02-.03-1.7-.21-2.3-.46-.6-.25-1.1-.6-1.6-1.1-.5-.5-.85-1-1.1-1.6-.25-.6-.43-1.28-.46-2.3-.03-.98-.04-1.25-.04-3.68s.01-2.7.04-3.68c.03-1.02.21-1.7.46-2.3.25-.6.6-1.1 1.1-1.6.5-.5 1-.85 1.6-1.1.6-.25 1.28-.43 2.3-.46.98-.03 1.25-.04 3.68-.04zm0 2c-2.71 0-3.05.01-4.06.04-1.0.03-1.5.21-1.9.41-.4.2-.7.5-.9.7-.2.2-.4.5-.5.9-.2.4-.3.9-.3 1.9-.03 1.01-.04 1.35-.04 4.06s.01 3.05.04 4.06c.03 1.0.21 1.5.41 1.9.2.4.5.7.7.9.2.2.5.4.9.5.4.2.9.3 1.9.3 1.01.03 1.35.04 4.06.04s3.05-.01 4.06-.04c1.0-.03 1.5-.21 1.9-.41.4-.2.7-.5.7-.9.2-.4.3-.9.3-1.9.03-1.01.04-1.35.04-4.06s-.01-3.05-.04-4.06c-.03-1.0-.21-1.5-.41-1.9-.2-.4-.5-.7-.7-.9-.2-.2-.5-.4-.9-.5-.4-.2-.9-.3-1.9-.3-1.01-.03-1.35-.04-4.06-.04zm0 4a4 4 0 100 8 4 4 0 000-8zm0 2a2 2 0 110 4 2 2 0 010-4zm4.5-5.5a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"
+                                clip-rule="evenodd"></path>
+                        </svg></a>
+                    <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="LinkedIn"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765 0-.974.784-1.764 1.75-1.764.965 0 1.75.79 1.75 1.764 0 .975-.785 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.142-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.75 7 2.454v6.781z" />
+                        </svg></a>
+                    <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="YouTube"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.3 12.3c-.3 1.1-.9 1.6-2 1.8-.7.2-2.1.2-3.7.2s-3-.1-3.7-.2c-1-.2-1.7-.7-2-1.8-.3-1.1-.3-3.2 0-4.3.3-1.1.9-1.6 2-1.8.7-.2 2.1-.2 3.7-.2s3.1.1 3.7.2c1.1.2 1.7.7 2 1.8.3 1.1.3 3.2 0 4.3zM10 9.5l4 2.5-4 2.5v-5z" />
+                        </svg></a>
+                    <a href="#" class="hover:text-primary-purple transition duration-150" aria-label="Telegram"><svg
+                            class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M18.9 4H5.1C4.5 4 4 4.5 4 5.1v13.8c0 .6.5 1.1 1.1 1.1h13.8c.6 0 1.1-.5 1.1-1.1V5.1c0-.6-.5-1.1-1.1-1.1zm-1.4 4.5l-4.2 4.2-4.2-4.2h8.4zm-8.4 8.5v-2.3l-2 2h4.3v-2.3l-2.3-2.3-2 2.3zm4.2 0l-2 2h4.3v-2.3l-2.3-2.3 2 2.3z" />
+                        </svg></a>
+                </nav>
+
+                <div class="flex items-center space-x-2 p-2 bg-green-600 rounded-md">
+                    <span class="text-white font-bold">Trustpilot</span>
+                    <span class="text-white text-xs">4.7 / 5</span>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 
 </html>

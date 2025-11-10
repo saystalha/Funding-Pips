@@ -1,16 +1,3 @@
-// const newid = document.getElementById("newid")
-// console.log(newid)
-// const handleclicks= ()  => {
-//     console.log("Button click hova")
-// }
-// newid.addEventListener("click",handleclicks)
-
-/**
- * main.js
- * Entry point for client-side JavaScript.
- * Initializes theme and sets up the Dark/Light mode toggle button.
- */
-
 import { initializeTheme, toggleTheme } from "./src/utils/themeUtils.js";
 import { THEME_MODE } from './constants/themeConstants.js';
 
